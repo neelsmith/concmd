@@ -1,0 +1,6 @@
+apply plugin: "base"
+
+// need task to zip up current template, and publish
+// it as a nexus artifact.
+//
+

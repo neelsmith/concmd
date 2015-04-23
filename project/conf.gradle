@@ -1,0 +1,21 @@
+/* Configuration for writing concordion specs using markdown.
+*/
+
+
+project.ext {
+
+	    
+  mdSrc = "specs/md"
+
+  
+  tokenMap = [    "openex": "<div class='example'>", "closeex" : "</div>"]
+  
+  htmlEnd = "</body>\n</html>\n"
+  htmlPreface = """
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<body>
+  """
+
+
+
+}
