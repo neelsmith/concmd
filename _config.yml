@@ -1,0 +1,30 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Concordion-markdown
+tagline:          'Write testable prose in markdown'
+description:      ''
+baseurl: '/concmd/'
+
+
+author:
+  name:           'Neel Smith'
+ 
+
+paginate:         5
+
+
+version:          0.12.0
+
+links:
+  - title: Github project
+    url: https://github.com/neelsmith/concmd
+    external: true
+  - title: Neel Smith elsewhere on github
+    url: http://neelsmith.github.io
+    external: true
