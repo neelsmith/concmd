@@ -1,7 +1,7 @@
 # concmd #
 
 
-Use markdown to write prose you can test with concordion.  Generate HTML output with concordion results embedded:
+Use markdown to write prose you can test with concordion, then generate HTML output with concordion results embedded:
 
     gradle conc
 
