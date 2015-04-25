@@ -3,11 +3,12 @@ title: Testable prose in markdown
 layout: page
 ---
 
-Concmd is a [gradle](https://gradle.org/) build system for applying  [concordion](http://concordion.org/) tests to prose written in markdown.
+`concmd` is a [gradle](https://gradle.org/) build system for applying  [concordion](http://concordion.org/) tests to prose written in markdown.
 
 ## Prerequisites ##
 
 - [gradle](https://gradle.org/) 
+- [what you need to understand](prereqs) to write testable prose in markdown
 
 
 ## One-liner for a correctly configured system
