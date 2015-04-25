@@ -5,6 +5,7 @@ apply plugin: "base"
 apply plugin: "groovy"
 apply plugin: "java"
 
+version: "1.0.0"
 
 if (hasProperty('conf')) {
     System.err.print "Using configuration data from ${conf}"
@@ -153,7 +154,14 @@ test {
     systemProperties 'concordion.output.dir': file("${buildDir}/concordion-results")
 }
 
-task conc(type: Copy, dependsOn: [test]) {
+task addVersion(){
+  description "Adds project version to list of filterable tokens"
+}
+addVersion.doLast {
+  tokenMap["version"] = version
+}
+
+task conc(type: Copy, dependsOn: [test, addVersion]) {
   description "Runs concordion tests on markdown source"
   from "${buildDir}/concordion-results"
   into "${buildDir}/concordion-formatted"
