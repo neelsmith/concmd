@@ -14,8 +14,6 @@ See the [concmd web site](http://neelsmith.github.io/concmd/) for full instructi
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License][bysa].  
 
-
-
 [bysa]: http://creativecommons.org/licenses/by-sa/4.0/
 
 [png]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png

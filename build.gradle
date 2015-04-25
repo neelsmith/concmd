@@ -27,8 +27,6 @@ if (hasProperty('conf')) {
     }
 }
 
-
-
 buildscript {
   repositories {
     mavenCentral()
@@ -38,14 +36,9 @@ buildscript {
   }
 }
 
+
 repositories {
     mavenCentral()
-    maven {
-        url "http://beta.hpcc.uh.edu/nexus/content/repositories/releases"
-    }
-    maven {
-      url "http://beta.hpcc.uh.edu/nexus/content/repositories/papyriinfo/"
-    }
 }
 
 dependencies {
@@ -56,28 +49,6 @@ dependencies {
 
 }
 
-
-
-
-// settings for concordion testing:
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'src'
-        }
-    }
-    test {
-        java {
-            srcDir "writing/java"
-        }
-        resources {
-            srcDir "${buildDir}/writing"
-        }
-    }
-}
 
 task copyMarkdown(type: Copy) {
   description "Copies markdown source into build area for further processing"
@@ -91,19 +62,11 @@ test {
     systemProperties 'concordion.output.dir': file("${buildDir}/concordion-results")
 }
 
-// for testing with concordion:
+// file system layout for testing with concordion:
 sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'src'
-        }
-    }
     test {
         java {
-	  srcDir "writing/java"
+	  srcDir "${javaSrc}"
         }
         resources {
 	  srcDir "${buildDir}/writing"
@@ -111,13 +74,7 @@ sourceSets {
     }
 }
 
-task copyResources(type: Copy) {
-  description "Copies concordion resources into build area"
-  from "writing/resources"
-  into "${buildDir}/writing"
-}
-
-task setUpConcordion(dependsOn: copyResources) {
+task setUpConcordion(dependsOn: copyMarkdown) {
   description = "Converts markdown source into HTML concordion can test"
 }
 setUpConcordion.doLast {
@@ -166,4 +123,8 @@ task conc(type: Copy, dependsOn: [test, addVersion]) {
   from "${buildDir}/concordion-results"
   into "${buildDir}/concordion-formatted"
   filter(ReplaceTokens, tokens: tokenMap)
+}
+
+conc.doLast {
+  println "\nFormatted output is in ${buildDir}/concordion-formatted"
 }

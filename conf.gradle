@@ -4,12 +4,19 @@
 
 project.ext {
 
-	    
+  // root directories for markdown and java source, respectively.
+  // These can be anywhere you like, but the two directory trees must
+  // be parallel to each other.
   mdSrc = "writing/md"
+  javaSrc = "writing/java"
 
-  
+  // map defining tokens to be recognized in converting markdown to
+  // HTML:  map keys will be replaced with map values.  Add any other
+  // tokens you like to this map.
   tokenMap = [    "openex": "<div class='example'>", "closeex" : "</div>"]
-  
+
+  // Necessary declaration of Concordion name space:  do NOT delete
+  // or alter.
   htmlEnd = "</body>\n</html>\n"
   htmlPreface = """
 <html xmlns:concordion="http://www.concordion.org/2007/concordion">
