@@ -1,6 +1,6 @@
 # Template for writing concordion specifications in markdown, version @version@ #
 
-This template illustrates how to write prose in markdown.  To apply concordion actions to part of your text, use an hmtl tag you like (as markdown routinely permits) with the appropriate attribute in the concordion namespace.  See the [`concmd` user's guide](http://neelsmith.github.io/concmd/) for full instructions.
+This template illustrates how to write prose in markdown.  To apply concordion actions to part of your text, use any hmtl tag you like (as markdown routinely permits) with the appropriate attribute in the concordion namespace.  See the [`concmd` user's guide](http://neelsmith.github.io/concmd/) for full instructions.
 
 In addition to text in markdown, the template includes a trival java fixture that echoes a given string a specified number of times.
 
