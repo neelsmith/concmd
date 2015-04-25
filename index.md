@@ -19,9 +19,10 @@ Your tested and formatted web pages will be in `build/concordion-formatted`.
 
 ## Documentation
 
-- [introduction and rationale](../intro)
-- basic user guide: [walk through a working project](../walkthrough)
-- [advanced options and configuration](../advanced)
+- introduction: [testing prose with machines](intro)
+- aim of this project: [testing prose written in markdown](md)
+- basic user guide: [walk through a working project](walkthrough)
+- advanced user guide: [configuration and formatting options](advanced)
 
 
 ## Download and license ##
