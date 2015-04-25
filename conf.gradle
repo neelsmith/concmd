@@ -1,11 +1,11 @@
-/* Configuration for writing concordion specs using markdown.
-*/
-
+//
+// Configuration for writing markdown to test with concordion.
+//
 
 project.ext {
 
 	    
-  mdSrc = "specs/md"
+  mdSrc = "writing/md"
 
   
   tokenMap = [    "openex": "<div class='example'>", "closeex" : "</div>"]

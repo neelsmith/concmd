@@ -58,7 +58,7 @@ dependencies {
 
 
 
-// settings for specs with concordion:
+// settings for concordion testing:
 sourceSets {
     main {
         java {
@@ -90,7 +90,7 @@ test {
     systemProperties 'concordion.output.dir': file("${buildDir}/concordion-results")
 }
 
-// for specs with concordion:
+// for testing with concordion:
 sourceSets {
     main {
         java {
@@ -102,17 +102,17 @@ sourceSets {
     }
     test {
         java {
-	  srcDir "specs/java"
+	  srcDir "writing/java"
         }
         resources {
-	  srcDir "${buildDir}/specs"
+	  srcDir "${buildDir}/writing"
         }
     }
 }
 
 task copyResources(type: Copy) {
   description "Copies concordion resources into build area"
-  from "specs/resources"
+  from "writing/resources"
   into "${buildDir}/writing"
 }
 
@@ -127,7 +127,7 @@ setUpConcordion.doLast {
     if (f.relativePath.isFile()) {
       File inFile = new File("${mdSrc}/${f.relativePath}")
       def segs = f.relativePath.getSegments()
-      String treePath = "${buildDir}/specs"
+      String treePath = "${buildDir}/writing"
       Integer limit =  segs.size() - 1
       segs.eachWithIndex { s, i ->
 	if (i < limit) {

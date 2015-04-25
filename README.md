@@ -1,6 +1,8 @@
 # concmd #
 
 
-Use markdown to write prose you can test with concordion.
+Use markdown to write prose you can test with concordion.  Generate HTML output with concordion results embedded:
 
-See the [concmd web site](http://neelsmith.github.io/concmd/) for instructions.
+    gradle conc
+
+See the [concmd web site](http://neelsmith.github.io/concmd/) for full instructions.
