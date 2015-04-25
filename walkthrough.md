@@ -14,7 +14,7 @@ In its root directory, you'll find a `build.gradle` file that defines the gradle
 
 ## Comparing markdown source with formatted output
 
-There is only markdown file in the template project: open `writing/md/yourProject/YourProject.md` in a text editor, and the corresponding `build/concordion-formatted/yourProject/YourProject.html` in a web browser.
+There is only one markdown file in the template project: open `writing/md/yourProject/YourProject.md` in a text editor, and the corresponding `build/concordion-formatted/yourProject/YourProject.html` in a web browser.
 
 You'll see that `YourProject.md` is completely generic markdown, with two kinds of additions:
 
