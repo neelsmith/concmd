@@ -4,6 +4,7 @@ import org.apache.tools.ant.filters.*
 apply plugin: "base"
 apply plugin: "groovy"
 apply plugin: "java"
+apply plugin: 'edu.holycross.shot.concmd'
 
 version =  "1.0.0"
 
@@ -30,9 +31,14 @@ if (hasProperty('conf')) {
 buildscript {
   repositories {
     mavenCentral()
+    maven {
+  	  url "http://beta.hpcc.uh.edu/nexus/content/groups/public"
+  	}
   }
   dependencies {
-    classpath group: 'com.github.rjeschke', name: 'txtmark', version: '0.11'
+    //classpath group: 'com.github.rjeschke', name: 'txtmark', version: '0.11'
+    //classpath group: 'edu.holycross.shot', name: 'concmd', version : "1.0.0"
+    classpath group: "edu.holycross.shot", name: "concmd", version: "1.0.0", classifier: "all"
   }
 }
 
@@ -64,22 +70,28 @@ test {
 
 // file system layout for testing with concordion:
 sourceSets {
-    test {
-        java {
-	  srcDir "${javaSrc}"
-        }
-        resources {
-	  srcDir "${buildDir}/writing"
-        }
+  test {
+    java {
+      srcDir "${javaSrc}"
     }
+    resources {
+      srcDir "${buildDir}/writing"
+    }
+  }
 }
 
+
+task setUpConcordion(type: edu.holycross.shot.ConcMdTask) {
+  from "writing/md"
+  into "${buildDir}/writing/md"
+}
+/*
 task setUpConcordion(dependsOn: copyMarkdown) {
   description = "Converts markdown source into HTML concordion can test"
 }
 setUpConcordion.doLast {
   FileTree tree = fileTree(mdSrc) {
-    include "**/*.md"
+    include "** / *.md"
   }
   tree.visit { f ->
     if (f.relativePath.isFile()) {
@@ -104,6 +116,7 @@ setUpConcordion.doLast {
     }
   }
 }
+*/
 
 
 test.dependsOn setUpConcordion
